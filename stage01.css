@@ -1,0 +1,71 @@
+/* --- Reset Básico e Estilos Globais --- */
+* {
+    box-sizing: border-box; /* Importante para o cálculo correto de tamanho */
+    margin: 0;
+    padding: 0;
+}
+
+body { 
+    background: #121212; 
+    color: white; 
+    font-family: sans-serif; 
+    padding: 20px; /* Adiciona um respiro nas bordas da tela */
+}
+
+/* --- Contêiner do Aplicativo (Agora Responsivo) --- */
+.app-container {
+    /* MUDEI AQUI: Usei width: 100% e max-width em %.
+       Isso permite que ele ocupe a tela toda, mas não passe de 90% da largura. */
+    width: 100%;
+    max-width: 600px; 
+    margin: 50px auto;
+    padding: 20px;
+    background: #1e1e1e; /* Um fundo levemente diferente para destacar */
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* --- O Contêiner da Barra (A Pista) --- */
+.progress-container { 
+    position: relative; /* ESSENCIAL: Para o texto flutuar aqui dentro */
+    background: #333;   /* Cor de fundo original */
+    height: 30px; 
+    border-radius: 15px; 
+    margin-bottom: 20px; 
+    overflow: hidden; 
+    /* MUDEI AQUI: A largura agora é relativa */
+    width: 100%; 
+}
+
+/* --- A Barra de Preenchimento --- */
+#progress-fill { 
+    background: #4caf50; /* Cor verde original */
+    height: 100%; 
+    width: 0%; /* O JS vai mudar isso, aqui é o estado inicial */
+    transition: width 0.5s ease-in-out; /* Animação suave */
+    border-radius: 15px; /* Arredonda os cantos */
+}
+
+/* --- O Texto da Porcentagem (Posicionamento Absoluto) --- */
+#progress-text { 
+    position: absolute; /* Tira do fluxo normal */
+    top: 0;
+    left: 0;
+    /* MUDEI AQUI: O texto ocupa 100% da largura do contêiner */
+    width: 100%; 
+    height: 100%;
+    
+    /* MUDEI AQUI: Usamos Flexbox para centralizar o texto dentro desse espaço de 100% */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;    /* Centraliza verticalmente */
+    
+    color: white;           /* Cor do texto original */
+    font-weight: bold;
+    font-size: 16px;        /* Ajustei um pouco para ficar mais legível */
+    pointer-events: none;   /* Impede que o mouse "clique" no texto */
+}
